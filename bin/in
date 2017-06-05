@@ -2,6 +2,8 @@
 set -eu -o pipefail
 exec 3>&1 1>&2
 
+TMPDIR="/tmp"
+
 payload=$(mktemp $TMPDIR/packer-resource-request.XXXXXX)
 
 cat > $payload <&0
