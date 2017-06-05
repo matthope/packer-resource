@@ -2,4 +2,8 @@
 set -eu -o pipefail
 exec 3>&1 1>&2
 
-jq '[.version // empty]' < /dev/stdin >&3
+payload=$(mktemp $TMPDIR/packer-resource-request.XXXXXX)
+
+cat > $payload <&0
+
+jq '[.version // empty]' < $payload >&3
