@@ -8,3 +8,5 @@ payload=$(mktemp $TMPDIR/packer-resource-request.XXXXXX)
 cat > $payload <&0
 
 jq '[.version // empty]' < $payload >&3
+
+rm -f $payload

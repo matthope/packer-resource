@@ -63,3 +63,6 @@ packer build -machine-readable $ARGS -var-file=$vars_file $SRC/$TEMPLATE \
 AMI=$(awk -F: '/artifact,0,id/ { print $2 }' /tmp/output)
 
 echo '{ "version": { "ami": "'$AMI'" } }' >&3
+
+rm -f $payload
+rm -f $vars_file

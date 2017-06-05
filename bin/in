@@ -13,3 +13,5 @@ DEST="$1"
 jq '.version.ami // empty' $payload > "$DEST/id"
 
 jq '{version, metadata: (.metadata // [])}' $payload >&3
+
+rm -f $payload
